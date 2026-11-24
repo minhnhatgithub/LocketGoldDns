@@ -36,6 +36,9 @@ const {
   claimedData,
   lookupUsername,
   isLookingUp,
+  lookupState,
+  lookupMessage,
+  lookupQueriedUser,
   lookupResult,
   submitClaim,
   submitLookup,
@@ -164,6 +167,14 @@ function handleCopy(text: string) {
   copyText(text);
   showToast('Đã sao chép liên kết vào bộ nhớ tạm!', 'success');
 }
+
+function handleLookupGoClaim(user: string) {
+  if (user) {
+    claimUsername.value = user;
+  }
+  handleNavigate('claim-box');
+  showToast(`Đã chuyển @${user || ''} sang Bước 1. Bấm 'Nhận 3 ngày dùng thử' để kích hoạt ngay!`, 'info');
+}
 </script>
 
 <template>
@@ -278,9 +289,14 @@ function handleCopy(text: string) {
         <LookupSection
           v-model:username="lookupUsername"
           :isLookingUp="isLookingUp"
+          :lookupState="lookupState"
+          :lookupMessage="lookupMessage"
+          :queriedUser="lookupQueriedUser"
           :result="lookupResult"
           @submit="submitLookup"
           @copy-ref="handleCopy"
+          @go-claim="handleLookupGoClaim"
+          @go-dns="() => { currentPlatform = 'ios'; handleNavigate('dns-guide'); }"
         />
 
         <!-- FAQs Section -->

@@ -1,21 +1,29 @@
 <script setup lang="ts">
-defineProps<{
+const props = defineProps<{
   username: string;
   isLookingUp: boolean;
   result: {
     username: string;
+    name?: string;
+    avatar?: string | null;
+    uid?: string;
     status: 'ACTIVE' | 'PENDING' | 'EXPIRED';
     daysLeft: number;
     dnsConnected: boolean;
     expiresAt: string;
     refCode: string;
   } | null;
+  lookupState?: 'idle' | 'loading' | 'found' | 'not_found' | 'error';
+  lookupMessage?: string;
+  queriedUser?: string;
 }>();
 
 const emit = defineEmits<{
   (e: 'update:username', val: string): void;
   (e: 'submit'): void;
   (e: 'copy-ref', code: string): void;
+  (e: 'go-claim', username: string): void;
+  (e: 'go-dns'): void;
 }>();
 </script>
 
@@ -28,7 +36,7 @@ const emit = defineEmits<{
       </span>
       <p>
         <strong>3. Mở Locket xong, kiểm tra tại đây</strong>
-        <span>Chỉ hiển thị đã kích hoạt khi máy chủ xác nhận DNS đang hoạt động.</span>
+        <span>Hệ thống truy vấn trực tiếp máy chủ DNS để xác nhận trạng thái kích hoạt của tài khoản.</span>
       </p>
     </section>
 
@@ -40,7 +48,7 @@ const emit = defineEmits<{
         </div>
         <div>
           <h2 id="lookup-title">Kiểm tra Gold đã kích hoạt chưa?</h2>
-          <p>Nhập username để kiểm tra DNS, thời hạn Gold và mã mời.</p>
+          <p>Nhập username hoặc liên kết locket.cam để kiểm tra trạng thái trên máy chủ.</p>
         </div>
         <span class="section-number">03</span>
       </div>
@@ -59,7 +67,7 @@ const emit = defineEmits<{
               autocapitalize="none"
               spellcheck="false"
               maxlength="16384"
-              placeholder="Nhập username hoặc liên kết Locket"
+              placeholder="Nhập username hoặc link locket.cam/..."
               :value="username"
               @input="emit('update:username', ($event.target as HTMLInputElement).value)"
             >
@@ -67,13 +75,25 @@ const emit = defineEmits<{
         </div>
 
         <button type="submit" id="btn-lookup-submit" class="ios-button primary" :disabled="isLookingUp">
-          <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+          <i v-if="isLookingUp" class="fa-solid fa-circle-notch fa-spin" aria-hidden="true"></i>
+          <i v-else class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
           <span>{{ isLookingUp ? 'Đang kiểm tra...' : 'Kiểm tra' }}</span>
         </button>
       </form>
 
-      <!-- Verified Result Display -->
-      <div v-if="result" id="lookup-result-container" class="lookup-result-box" aria-live="polite">
+      <!-- 1. LOADING STATE -->
+      <div v-if="isLookingUp || lookupState === 'loading'" class="lookup-status-box loading-box" aria-live="polite">
+        <div class="status-spinner">
+          <i class="fa-solid fa-circle-notch fa-spin" aria-hidden="true"></i>
+        </div>
+        <div class="status-content">
+          <h4>Đang kết nối máy chủ DNS...</h4>
+          <p>Đang kiểm tra quyền truy cập Gold cho <strong>@{{ queriedUser || username }}</strong>.</p>
+        </div>
+      </div>
+
+      <!-- 2. FOUND & ACTIVE (SUCCESS STATE) -->
+      <div v-else-if="lookupState === 'found' && result" id="lookup-result-container" class="lookup-result-box" aria-live="polite">
         <div class="result-header">
           <div class="status-badge-active">
             <i class="fa-solid fa-check" aria-hidden="true"></i>
@@ -85,20 +105,82 @@ const emit = defineEmits<{
         <div class="result-grid">
           <div class="result-item">
             <span class="item-label">Tài khoản</span>
-            <strong class="item-val">@{{ result.username }}</strong>
+            <strong class="item-val">
+              @{{ result.username }}
+              <span v-if="result.name && result.name !== result.username" class="user-subname">({{ result.name }})</span>
+            </strong>
           </div>
           <div class="result-item">
             <span class="item-label">Thời hạn</span>
             <strong class="item-val gold-val">+{{ result.daysLeft }} ngày Gold</strong>
           </div>
           <div class="result-item">
-            <span class="item-label">DNS Trạng thái</span>
-            <strong class="item-val success-val">● Đã kết nối</strong>
+            <span class="item-label">DNS Máy chủ</span>
+            <strong class="item-val success-val">● Đã liên kết &amp; Hoạt động</strong>
           </div>
           <div class="result-item">
             <span class="item-label">Hạn dùng</span>
             <strong class="item-val">{{ result.expiresAt }}</strong>
           </div>
+          <div v-if="result.uid" class="result-item full-width-item">
+            <span class="item-label">UID Locket</span>
+            <span class="uid-code">{{ result.uid }}</span>
+          </div>
+        </div>
+
+        <div class="result-actions-row">
+          <button
+            type="button"
+            class="action-pill-btn gold"
+            @click="emit('copy-ref', result.refCode)"
+            title="Sao chép mã giới thiệu"
+          >
+            <i class="fa-regular fa-copy" aria-hidden="true"></i>
+            <span>Mã mời: <b>{{ result.refCode }}</b> (+25 ngày)</span>
+          </button>
+          <button
+            type="button"
+            class="action-pill-btn secondary"
+            @click="emit('go-dns')"
+          >
+            <i class="fa-solid fa-sliders" aria-hidden="true"></i>
+            <span>Cài đặt lại DNS</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- 3. NOT FOUND (CHƯA KÍCH HOẠT) -->
+      <div v-else-if="lookupState === 'not_found'" class="lookup-status-box not-found-box" aria-live="polite">
+        <div class="status-icon-badge amber">
+          <i class="fa-solid fa-triangle-exclamation" aria-hidden="true"></i>
+        </div>
+        <div class="status-content">
+          <h4>Chưa kích hoạt Gold cho @{{ queriedUser || username }}</h4>
+          <p>
+            Tài khoản này chưa có trong danh sách được cấp quyền trên máy chủ DNS. Bạn có thể bấm nút bên dưới để nhận 3 ngày dùng thử miễn phí ngay lập tức!
+          </p>
+          <div class="not-found-action">
+            <button
+              type="button"
+              class="ios-button primary cta-claim-btn"
+              @click="emit('go-claim', queriedUser || username)"
+            >
+              <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i>
+              <span>Nhận 3 ngày dùng thử ngay</span>
+              <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. ERROR STATE -->
+      <div v-else-if="lookupState === 'error'" class="lookup-status-box error-box" aria-live="polite">
+        <div class="status-icon-badge red">
+          <i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
+        </div>
+        <div class="status-content">
+          <h4>Không thể hoàn tất kiểm tra</h4>
+          <p>{{ lookupMessage || 'Vui lòng kiểm tra lại username hoặc kết nối mạng của bạn.' }}</p>
         </div>
       </div>
     </section>
@@ -134,9 +216,9 @@ const emit = defineEmits<{
 .lookup-intro span:not(.heading-icon) {
   display: block;
   color: #9d835b;
-  font-size: 11px;
+  font-size: 12px;
   margin-top: 4px;
-  line-height: 1.7;
+  line-height: 1.6;
 }
 
 .heading-icon {
@@ -183,20 +265,12 @@ const emit = defineEmits<{
 }
 
 .card-heading p {
-  font-size: 11px;
-  color: #a78d69;
-  font-weight: 650;
-  margin-top: 4px;
-  margin-bottom: 0;
+  font-size: 11.5px;
+  color: #8c785d;
+  margin: 2px 0 0;
 }
 
 .section-number {
-  display: grid;
-  place-items: center;
-  width: 24px;
-  height: 24px;
-  border-radius: 9px;
-  background: #eee2fa;
   color: #ad8acb;
   font-size: 9px;
   font-weight: 900;
@@ -286,17 +360,14 @@ const emit = defineEmits<{
   box-shadow: 0 5px 0 #d79b1f, 0 10px 17px rgba(233, 184, 53, 0.3);
 }
 
-.ios-button.primary:active {
-  transform: translateY(3px);
-  box-shadow: 0 1px 0 #d79b1f;
-}
-
+/* Success Result Box */
 .lookup-result-box {
   margin-top: 18px;
-  padding: 18px 20px;
+  padding: 20px 22px;
   border-radius: 16px;
   background: #fdfbf5;
   border: 1px solid #ebd8b6;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.02);
 }
 
 .result-header {
@@ -310,7 +381,7 @@ const emit = defineEmits<{
   display: flex;
   align-items: center;
   gap: 6px;
-  font-size: 13px;
+  font-size: 13.5px;
   font-weight: 850;
   color: #15803d;
 }
@@ -339,54 +410,219 @@ const emit = defineEmits<{
 
 .result-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  background: #ffffff;
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid #f3ece0;
 }
 
 .result-item {
-  padding: 10px 12px;
-  background: #ffffff;
-  border: 1px solid #ebdcc5;
-  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.full-width-item {
+  grid-column: 1 / -1;
+  padding-top: 8px;
+  border-top: 1px dashed #ede5d8;
 }
 
 .item-label {
-  display: block;
-  font-size: 10px;
-  font-weight: 800;
-  color: #9c8a74;
+  font-size: 11px;
+  color: #8c785d;
+  font-weight: 700;
   text-transform: uppercase;
-  margin-bottom: 2px;
+  letter-spacing: 0.03em;
 }
 
 .item-val {
-  display: block;
-  font-size: 13px;
-  font-weight: 850;
+  font-size: 14px;
   color: #2b2216;
+  font-weight: 800;
+}
+
+.user-subname {
+  font-weight: 600;
+  color: #8c785d;
+  font-size: 13px;
 }
 
 .gold-val {
-  color: #b45309;
+  color: #d97706;
 }
 
 .success-val {
   color: #16a34a;
 }
 
-@media (max-width: 768px) {
-  .lookup-intro {
-    align-items: flex-start;
-  }
+.uid-code {
+  font-family: monospace;
+  font-size: 13px;
+  color: #4b5563;
+  word-break: break-all;
+}
+
+.result-actions-row {
+  display: flex;
+  gap: 10px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+
+.action-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.16s ease;
+}
+
+.action-pill-btn.gold {
+  background: #fef3c7;
+  border-color: #fde68a;
+  color: #92400e;
+}
+.action-pill-btn.gold:hover {
+  background: #fde68a;
+}
+
+.action-pill-btn.secondary {
+  background: #f1f5f9;
+  border-color: #e2e8f0;
+  color: #475569;
+}
+.action-pill-btn.secondary:hover {
+  background: #e2e8f0;
+}
+
+/* Common Status Box */
+.lookup-status-box {
+  margin-top: 18px;
+  padding: 18px 20px;
+  border-radius: 16px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  animation: fadeIn 0.25s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.status-icon-badge {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px;
+  flex-shrink: 0;
+}
+
+.status-icon-badge.amber {
+  background: #fef3c7;
+  color: #d97706;
+}
+
+.status-icon-badge.red {
+  background: #fee2e2;
+  color: #dc2626;
+}
+
+.status-spinner {
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+  background: rgba(245, 158, 11, 0.15);
+  color: #d97706;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.status-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.status-content h4 {
+  font-size: 15.5px;
+  font-weight: 850;
+  margin: 0 0 4px;
+  line-height: 1.35;
+}
+
+.status-content p {
+  font-size: 13px;
+  color: #64748b;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Loading Box */
+.loading-box {
+  background: #fdfaf3;
+  border: 1px solid #fae8c8;
+}
+.loading-box h4 {
+  color: #92400e;
+}
+
+/* Not Found Box */
+.not-found-box {
+  background: #fffbeb;
+  border: 1px solid #fde68a;
+}
+.not-found-box h4 {
+  color: #b45309;
+}
+
+.not-found-action {
+  margin-top: 12px;
+}
+
+.cta-claim-btn {
+  padding: 8px 18px;
+  min-height: 40px;
+  font-size: 13px;
+}
+
+/* Error Box */
+.error-box {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+}
+.error-box h4 {
+  color: #b91c1c;
+}
+.error-box p {
+  color: #7f1d1d;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
   .lookup-form {
     flex-direction: column;
   }
-  .ios-button.primary {
-    width: 100%;
-    justify-content: center;
-  }
   .result-grid {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
+  }
+  .lookup-status-box {
+    flex-direction: column;
+    gap: 10px;
   }
 }
 </style>

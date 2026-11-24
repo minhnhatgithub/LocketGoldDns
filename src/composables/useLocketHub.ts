@@ -46,10 +46,15 @@ export function useLocketHub() {
   // Lookup form state
   const lookupUsername = ref<string>('');
   const isLookingUp = ref<boolean>(false);
+  const lookupState = ref<'idle' | 'loading' | 'found' | 'not_found' | 'error'>('idle');
+  const lookupMessage = ref<string>('');
+  const lookupQueriedUser = ref<string>('');
+
   const lookupResult = ref<{
     username: string;
     name?: string;
     avatar?: string | null;
+    uid?: string;
     status: 'ACTIVE' | 'PENDING' | 'EXPIRED';
     daysLeft: number;
     dnsConnected: boolean;
@@ -114,7 +119,6 @@ export function useLocketHub() {
       const resData = await response.json().catch(() => null);
 
       if (response.status === 200 && resData?.success) {
-        // Kích hoạt thành công trên Locket Server
         const acc = resData.data || {};
         claimedData.value = {
           username: acc.username || clean,
@@ -132,7 +136,6 @@ export function useLocketHub() {
         dnsVerificationState.value = 'verified';
         fireConfetti();
       } else if (response.status === 409) {
-        // Tài khoản đã có sẵn trên hệ thống
         const acc = resData?.data || {};
         claimedData.value = {
           username: acc.username || clean,
@@ -150,19 +153,16 @@ export function useLocketHub() {
         dnsVerificationState.value = 'verified';
         fireConfetti();
       } else if (response.status === 404) {
-        // Không tìm thấy user trên Locket
         const errMsg = resData?.error || `Không tìm thấy tài khoản @${clean} trên Locket!`;
         claimErrorMessage.value = errMsg;
         dnsVerificationText.value = errMsg;
         dnsVerificationState.value = 'attention';
       } else {
-        // Lỗi khác từ API
         const errMsg = resData?.error || 'Không thể kích hoạt qua API. Vui lòng kiểm tra lại!';
         claimErrorMessage.value = errMsg;
       }
     } catch (err: any) {
       console.warn('Network or API activate error, falling back:', err);
-      // Fallback offline an toàn để không chặn người dùng
       claimedData.value = {
         username: clean,
         name: `User @${clean}`,
@@ -184,12 +184,25 @@ export function useLocketHub() {
 
   async function submitLookup() {
     const raw = lookupUsername.value.trim();
-    if (!raw) return;
+    if (!raw) {
+      lookupState.value = 'error';
+      lookupMessage.value = 'Vui lòng nhập Username hoặc liên kết Locket cần kiểm tra!';
+      return;
+    }
 
     const clean = extractUsername(raw);
-    if (!clean) return;
+    if (!clean) {
+      lookupState.value = 'error';
+      lookupMessage.value = 'Định dạng username hoặc link Locket không hợp lệ!';
+      return;
+    }
 
     isLookingUp.value = true;
+    lookupState.value = 'loading';
+    lookupMessage.value = '';
+    lookupQueriedUser.value = clean;
+    lookupResult.value = null;
+
     const apiKey = appConfig.value.api?.apiKey || 'lkt_live_96bcabe6ab6318e52c443e5cdc6b1c590f450d5e3fe26eb3';
     const userUrl = appConfig.value.api?.userUrl || 'https://minhnhatdev.duckdns.org/api/v1/user';
 
@@ -216,36 +229,37 @@ export function useLocketHub() {
           username: acc.username || clean,
           name: acc.name || clean,
           avatar: acc.avatar || null,
+          uid: acc.uid || 'VIP-MEMBER',
           status: 'ACTIVE',
           daysLeft: daysLeft,
           dnsConnected: true,
           expiresAt: expDate ? expDate.toLocaleDateString('vi-VN') : 'Vĩnh viễn',
           refCode: `GOLD-${clean.toUpperCase().slice(0, 4) || 'VIP'}88`,
         };
+        lookupState.value = 'found';
+        lookupMessage.value = `Máy chủ xác nhận tài khoản @${clean} (${acc.name || 'Hội viên'}) đã kích hoạt Gold thành công!`;
         dnsVerificationText.value = `Máy chủ đã xác nhận DNS & quyền Gold đang hoạt động cho @${clean} (${acc.name || 'VIP'}).`;
         dnsVerificationState.value = 'verified';
         fireConfetti();
-      } else {
-        // User not found in accounts
+      } else if (response.status === 404) {
+        // Tài khoản chưa có trong hệ thống
         lookupResult.value = null;
-        dnsVerificationText.value = `Tài khoản @${clean} chưa kích hoạt Gold trên hệ thống. Hãy nhận 3 ngày dùng thử ở Bước 1!`;
+        lookupState.value = 'not_found';
+        lookupMessage.value = `Tài khoản @${clean} chưa được kích hoạt Gold trên hệ thống máy chủ DNS.`;
+        dnsVerificationText.value = `Tài khoản @${clean} chưa kích hoạt Gold. Vui lòng nhận 3 ngày dùng thử ở Bước 1.`;
+        dnsVerificationState.value = 'attention';
+      } else {
+        lookupResult.value = null;
+        lookupState.value = 'error';
+        lookupMessage.value = resData?.error || 'Không thể kiểm tra tài khoản. Vui lòng thử lại!';
         dnsVerificationState.value = 'attention';
       }
     } catch (err) {
-      console.warn('Lookup error, using local fallback:', err);
-      lookupResult.value = {
-        username: clean,
-        name: clean,
-        avatar: null,
-        status: 'ACTIVE',
-        daysLeft: 3,
-        dnsConnected: true,
-        expiresAt: '28/11/2026',
-        refCode: `GOLD-${clean.toUpperCase().slice(0, 4) || 'VIP'}88`,
-      };
-      dnsVerificationText.value = `Máy chủ đã xác nhận DNS hoạt động cho @${clean}.`;
-      dnsVerificationState.value = 'verified';
-      fireConfetti();
+      console.warn('Lookup error:', err);
+      lookupResult.value = null;
+      lookupState.value = 'error';
+      lookupMessage.value = 'Không thể kết nối đến máy chủ kiểm tra. Vui lòng kiểm tra lại mạng!';
+      dnsVerificationState.value = 'attention';
     } finally {
       isLookingUp.value = false;
     }
@@ -283,6 +297,9 @@ export function useLocketHub() {
     claimedData,
     lookupUsername,
     isLookingUp,
+    lookupState,
+    lookupMessage,
+    lookupQueriedUser,
     lookupResult,
     checkinUsername,
     streakCount,

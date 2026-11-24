@@ -1115,3 +1115,104 @@ html.dark .col-gold {
   color: #fbbf24 !important;
 }
 
+/* ============================================================
+   Lookup Section States - Obsidian Gold Dark Mode
+   ============================================================ */
+html.dark .lookup-card {
+  background: #1c1914 !important;
+  border-color: #382d1c !important;
+}
+
+html.dark .lookup-card .card-heading h2 {
+  color: #fdfaf3 !important;
+}
+
+html.dark .lookup-card .card-heading p {
+  color: #a8a29e !important;
+}
+
+html.dark .lookup-card .input-wrap {
+  background: #241f18 !important;
+  border-color: #382d1c !important;
+}
+
+html.dark .lookup-card .input-wrap input {
+  color: #fdfaf3 !important;
+}
+
+html.dark .lookup-card .input-wrap input::placeholder {
+  color: #78716c !important;
+}
+
+html.dark .lookup-result-box {
+  background: #241f18 !important;
+  border-color: #382d1c !important;
+}
+
+html.dark .result-grid {
+  background: #181510 !important;
+  border-color: #382d1c !important;
+}
+
+html.dark .item-label {
+  color: #a8a29e !important;
+}
+
+html.dark .item-val {
+  color: #fdfaf3 !important;
+}
+
+html.dark .uid-code {
+  color: #94a3b8 !important;
+}
+
+html.dark .full-width-item {
+  border-top-color: #382d1c !important;
+}
+
+html.dark .loading-box {
+  background: #241f18 !important;
+  border-color: #382d1c !important;
+}
+
+html.dark .loading-box h4 {
+  color: #fbbf24 !important;
+}
+
+html.dark .not-found-box {
+  background: #281d0f !important;
+  border-color: #784a00 !important;
+}
+
+html.dark .not-found-box h4 {
+  color: #fde68a !important;
+}
+
+html.dark .not-found-box p {
+  color: #d6d3d1 !important;
+}
+
+html.dark .status-icon-badge.amber {
+  background: #451a03 !important;
+  color: #fbbf24 !important;
+}
+
+html.dark .error-box {
+  background: #3b1111 !important;
+  border-color: #7f1d1d !important;
+}
+
+html.dark .error-box h4 {
+  color: #fca5a5 !important;
+}
+
+html.dark .error-box p {
+  color: #fecaca !important;
+}
+
+html.dark .status-icon-badge.red {
+  background: #500707 !important;
+  color: #f87171 !important;
+}
+
+
