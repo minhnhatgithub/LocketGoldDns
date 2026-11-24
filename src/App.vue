@@ -14,6 +14,7 @@ import HeroDnsSection from './components/sections/HeroDnsSection.vue';
 import ClaimCard from './components/sections/ClaimCard.vue';
 import DnsSetupCard from './components/sections/DnsSetupCard.vue';
 import AndroidApkCard from './components/sections/AndroidApkCard.vue';
+import GoldFeaturesSection from './components/sections/GoldFeaturesSection.vue';
 import LookupSection from './components/sections/LookupSection.vue';
 import FaqSection from './components/sections/FaqSection.vue';
 
@@ -267,6 +268,9 @@ function handleCopy(text: string) {
             @navigate="handleNavigate"
           />
         </div>
+
+        <!-- Exclusive Locket Gold VIP Features & Comparison -->
+        <GoldFeaturesSection @navigate="handleNavigate" />
 
         <!-- Step 3: Lookup Intro & Activation Verification -->
         <LookupSection

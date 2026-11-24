@@ -55,6 +55,12 @@ function scrollToTop() {
             </a>
           </li>
           <li>
+            <a href="#gold-features" @click.prevent="emit('navigate', 'gold-features')">
+              <i class="fa-solid fa-crown" style="color: #f59e0b;" aria-hidden="true"></i>
+              <span>Đặc quyền Locket Gold VIP</span>
+            </a>
+          </li>
+          <li>
             <a href="#lookup-box" @click.prevent="emit('navigate', 'lookup-box')">
               <i class="fa-solid fa-circle-check" aria-hidden="true"></i>
               <span>3. Kiểm tra kích hoạt</span>

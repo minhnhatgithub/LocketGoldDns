@@ -113,6 +113,16 @@ function handleItemClick(id: string) {
       </a>
 
       <a
+        href="#gold-features"
+        @click.prevent="handleItemClick('gold-features')"
+        class="nav-item"
+        :class="{ active: activeNav === 'gold-features' }"
+      >
+        <i class="fa-solid fa-crown" style="color: #f59e0b;" aria-hidden="true"></i>
+        <span class="nav-label">Đặc quyền Gold VIP</span>
+      </a>
+
+      <a
         href="#lookup-box"
         @click.prevent="handleItemClick('lookup-box')"
         class="nav-item"
