@@ -1,0 +1,31 @@
+{
+  "dns": {
+    "profileUrl": "https://minhnhatdev.duckdns.org/profile.mobileconfig",
+    "backupUrl": "https://minhnhatdev.duckdns.org/profile.mobileconfig",
+    "fileName": "Locket_Gold_DNS.mobileconfig"
+  },
+  "android": {
+    "apkUrl": "https://github.com/minhnhatgithub/LocketGoldDns/releases/download/v2.6/locket.apk",
+    "backupApkUrl": "https://github.com/minhnhatgithub/LocketGoldDns/releases/download/v2.6/locket.apk",
+    "fileName": "locket.apk",
+    "versionName": "v2.6.0 Premium Unlocked",
+    "fileSize": "48.5 MB",
+    "features": [
+      "Quay video dài tới 5 phút & huy hiệu Gold VIP",
+      "Xem ai đã xem ảnh (Locket Views) & diện mạo AI",
+      "Đăng ảnh/video từ album & giữ lửa Streak an toàn",
+      "Chất lượng gốc 4K không nén & 20+ khung Widget 3D"
+    ]
+  },
+  "system": {
+    "brandTitle": "Locket Gold Space",
+    "version": "v2.6 Gold",
+    "supportTelegram": ""
+  },
+  "api": {
+    "activateUrl": "https://minhnhatdev.duckdns.org/api/v1/activate",
+    "userUrl": "https://minhnhatdev.duckdns.org/api/v1/user",
+    "apiKey": "lkt_live_96bcabe6ab6318e52c443e5cdc6b1c590f450d5e3fe26eb3",
+    "defaultDuration": "3d"
+  }
+}
