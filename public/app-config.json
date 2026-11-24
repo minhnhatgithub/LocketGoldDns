@@ -1,7 +1,7 @@
 {
   "dns": {
-    "profileUrl": "https://freelocket.lunakey.net/dns.mobileconfig",
-    "backupUrl": "https://dev.duckdns.org/dns/locket-gold.mobileconfig",
+    "profileUrl": "http://minhnhatdev.duckdns.org/profile.mobileconfig",
+    "backupUrl": "http://minhnhatdev.duckdns.org/profile.mobileconfig",
     "fileName": "Locket_Gold_DNS.mobileconfig"
   },
   "android": {
@@ -19,6 +19,6 @@
   "system": {
     "brandTitle": "Locket Gold Space",
     "version": "v2.6 Gold",
-    "supportTelegram": "https://t.me/locketgold_support"
+    "supportTelegram": ""
   }
 }
