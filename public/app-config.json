@@ -5,8 +5,8 @@
     "fileName": "Locket_Gold_DNS.mobileconfig"
   },
   "android": {
-    "apkUrl": "https://github.com/locketgold/releases/download/v2.6.0/Locket_Gold_v2.6.0.apk",
-    "backupApkUrl": "https://drive.google.com/file/d/locket-gold-v26-backup/view",
+    "apkUrl": "https://github.com/minhnhatgithub/LocketGoldDns/releases/download/v2.6/locket.apk",
+    "backupApkUrl": "https://github.com/minhnhatgithub/LocketGoldDns/releases/download/v2.6/locket.apk",
     "fileName": "Locket_Gold_v2.6.0.apk",
     "versionName": "v2.6.0 Premium Unlocked",
     "fileSize": "48.5 MB",
