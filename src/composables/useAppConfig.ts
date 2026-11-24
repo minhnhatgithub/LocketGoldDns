@@ -19,6 +19,12 @@ export interface AppConfig {
     version: string;
     supportTelegram: string;
   };
+  api?: {
+    activateUrl: string;
+    userUrl: string;
+    apiKey: string;
+    defaultDuration: string;
+  };
 }
 
 const DEFAULT_CONFIG: AppConfig = {
@@ -43,6 +49,12 @@ const DEFAULT_CONFIG: AppConfig = {
     brandTitle: 'Locket Gold',
     version: 'v2.6 Gold',
     supportTelegram: 'https://t.me/locketgold_support',
+  },
+  api: {
+    activateUrl: 'https://minhnhatdev.duckdns.org/api/v1/activate',
+    userUrl: 'https://minhnhatdev.duckdns.org/api/v1/user',
+    apiKey: 'lkt_live_96bcabe6ab6318e52c443e5cdc6b1c590f450d5e3fe26eb3',
+    defaultDuration: '3d',
   },
 };
 

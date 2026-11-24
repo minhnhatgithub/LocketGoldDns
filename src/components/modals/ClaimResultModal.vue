@@ -4,10 +4,14 @@ defineProps<{
   dnsUrl?: string;
   data: {
     username: string;
+    name?: string;
+    avatar?: string | null;
     days: number;
     status: string;
     uid: string;
     refCode: string;
+    expiresAt?: string;
+    isExisting?: boolean;
   };
 }>();
 
@@ -37,25 +41,33 @@ const emit = defineEmits<{
         <i class="fa-solid fa-check" aria-hidden="true"></i>
       </div>
 
-      <h2 id="modal-congrat-title">Đã nhận 3 ngày Gold</h2>
-      <p class="modal-subtitle">Thêm thời gian cho những khoảnh khắc của bạn.</p>
+      <h2 id="modal-congrat-title">
+        {{ data.isExisting ? 'Tài khoản đã có Gold VIP' : 'Đã kích hoạt 3 ngày Gold VIP' }}
+      </h2>
+      <p class="modal-subtitle">
+        {{ data.isExisting ? 'Tài khoản của bạn đã có quyền truy cập trên máy chủ DNS.' : 'Đã kết nối thành công với tài khoản Locket chính chủ.' }}
+      </p>
 
       <dl class="result-summary">
         <div>
           <dt>Tài khoản</dt>
           <dd id="res-username">@{{ data.username }}</dd>
         </div>
+        <div v-if="data.name && data.name !== data.username">
+          <dt>Tên hiển thị</dt>
+          <dd id="res-name">{{ data.name }}</dd>
+        </div>
         <div>
           <dt>Thời hạn được cấp</dt>
-          <dd id="res-days">+{{ data.days }} ngày</dd>
+          <dd id="res-days">+{{ data.days }} ngày {{ data.expiresAt ? `(Hạn: ${data.expiresAt})` : '' }}</dd>
         </div>
         <div>
           <dt>Trạng thái</dt>
-          <dd id="res-status">{{ data.status }}</dd>
+          <dd id="res-status" style="color: #10b981; font-weight: 800;">● {{ data.status }}</dd>
         </div>
         <div>
-          <dt>UID</dt>
-          <dd id="res-uid">{{ data.uid }}</dd>
+          <dt>UID Locket</dt>
+          <dd id="res-uid" style="font-family: monospace; font-size: 13px;">{{ data.uid }}</dd>
         </div>
       </dl>
 

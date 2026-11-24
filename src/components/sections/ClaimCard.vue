@@ -4,6 +4,7 @@ defineProps<{
   refCode: string;
   isSubmitting: boolean;
   platform?: 'ios' | 'android';
+  errorMessage?: string;
 }>();
 
 const emit = defineEmits<{
@@ -28,6 +29,12 @@ const emit = defineEmits<{
 
     <form id="claim-form" class="ios-form" @submit.prevent="emit('submit')">
       <div class="form-body">
+        <!-- Error Alert Banner -->
+        <div v-if="errorMessage" class="error-alert-box" role="alert">
+          <i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
+          <span>{{ errorMessage }}</span>
+        </div>
+
         <!-- Username field -->
         <div class="field">
           <label for="locket-username">
@@ -138,6 +145,26 @@ const emit = defineEmits<{
   display: flex;
   flex-direction: column;
   height: 100%;
+}
+
+.error-alert-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #b91c1c;
+  padding: 10px 14px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+:global(.dark) .error-alert-box {
+  background: #450a0a !important;
+  border-color: #7f1d1d !important;
+  color: #fca5a5 !important;
 }
 
 .card-heading {

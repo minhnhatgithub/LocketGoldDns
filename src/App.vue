@@ -32,6 +32,7 @@ const {
   claimRef,
   isClaimSubmitting,
   claimModalOpen,
+  claimErrorMessage,
   claimedData,
   lookupUsername,
   isLookingUp,
@@ -238,6 +239,7 @@ function handleCopy(text: string) {
             v-model:refCode="claimRef"
             :isSubmitting="isClaimSubmitting"
             :platform="currentPlatform"
+            :errorMessage="claimErrorMessage"
             @submit="submitClaim"
           />
 
