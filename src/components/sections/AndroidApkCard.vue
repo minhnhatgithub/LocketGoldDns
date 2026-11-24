@@ -150,6 +150,7 @@ function handleBackupDownload() {
         <!-- Main Download Button: native link with fallback handler -->
         <a
           :href="config?.apkUrl || '#'"
+          :download="config?.fileName || 'locket.apk'"
           target="_blank"
           rel="noopener noreferrer"
           @click="handleDownload"

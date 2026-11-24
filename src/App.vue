@@ -86,19 +86,10 @@ function toggleTheme() {
 }
 
 function handleDownloadApk() {
-  const url = appConfig.value.android.apkUrl;
-  const fileName = appConfig.value.android.fileName || 'Locket_Gold_v2.6.0.apk';
+  const fileName = appConfig.value.android.fileName || 'locket.apk';
   const size = appConfig.value.android.fileSize || '48.5 MB';
   showToast(`Đang tải file ${fileName} (${size})...`, 'success');
-
-  const link = document.createElement('a');
-  link.href = url;
-  link.setAttribute('download', fileName);
-  link.target = '_blank';
-  document.body.appendChild(link);
-  link.click();
   setTimeout(() => {
-    link.remove();
     showToast('Đã bắt đầu tải file APK! Mở thư mục Tệp đã tải xuống để cài.', 'info');
   }, 1200);
 }
