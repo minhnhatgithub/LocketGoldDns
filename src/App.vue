@@ -140,9 +140,6 @@ function handleNavigate(id: string) {
 function handleDownloadDns() {
   dnsVerificationText.value = 'Đã bấm tải hồ sơ. Chọn Cho phép trong Safari, rồi xem bước cài hồ sơ.';
   showToast('Đang tải hồ sơ cấu hình DNS Locket Gold...', 'info');
-  const url = appConfig.value.dns.profileUrl || 'https://freelocket.lunakey.net/dns.mobileconfig';
-  // Trigger download / open config profile in Safari
-  window.location.href = url;
   // Auto advance to step 1 after 1.5s
   setTimeout(() => {
     dnsStep.value = 1;
@@ -249,6 +246,8 @@ function handleCopy(text: string) {
             v-model:currentStep="dnsStep"
             :verificationText="dnsVerificationText"
             :verificationState="dnsVerificationState"
+            :profileUrl="appConfig.dns.profileUrl"
+            :backupUrl="appConfig.dns.backupUrl"
             @download="handleDownloadDns"
             @verify-click="handleVerifyDnsShortcut"
             @copy-page-link="handleCopy('https://locketgold.space/#dns-guide')"

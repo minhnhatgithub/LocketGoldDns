@@ -147,16 +147,19 @@ function handleBackupDownload() {
       </div>
 
       <div class="step-actions">
-        <!-- Main Download Button -->
-        <button
-          type="button"
+        <!-- Main Download Button: native link with fallback handler -->
+        <a
+          :href="config?.apkUrl || '#'"
+          target="_blank"
+          rel="noopener noreferrer"
           @click="handleDownload"
           class="ios-button primary full-width"
+          style="text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px;"
           aria-label="Tải file APK Locket Gold cho Android"
         >
           <i class="fa-solid fa-cloud-arrow-down" aria-hidden="true"></i>
           <span>Tải {{ config?.fileName || 'file APK Locket Gold' }} ({{ config?.fileSize || '48.5 MB' }}) →</span>
-        </button>
+        </a>
 
         <p class="apk-download-subtext">
           <i class="fa-solid fa-bolt" aria-hidden="true"></i>

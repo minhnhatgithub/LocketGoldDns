@@ -1,7 +1,7 @@
 {
   "dns": {
-    "profileUrl": "http://minhnhatdev.duckdns.org/profile.mobileconfig",
-    "backupUrl": "http://minhnhatdev.duckdns.org/profile.mobileconfig",
+    "profileUrl": "https://minhnhatdev.duckdns.org/profile.mobileconfig",
+    "backupUrl": "https://minhnhatdev.duckdns.org/profile.mobileconfig",
     "fileName": "Locket_Gold_DNS.mobileconfig"
   },
   "android": {

@@ -1,8 +1,10 @@
 <script setup lang="ts">
-defineProps<{
+const props = defineProps<{
   currentStep: number;
   verificationText: string;
   verificationState: string;
+  profileUrl?: string;
+  backupUrl?: string;
 }>();
 
 const emit = defineEmits<{
@@ -12,6 +14,10 @@ const emit = defineEmits<{
   (e: 'copy-page-link'): void;
   (e: 'open-guide', stepIdx?: number): void;
 }>();
+
+function handleDownloadClick() {
+  emit('download');
+}
 </script>
 
 <template>
@@ -107,10 +113,25 @@ const emit = defineEmits<{
       </div>
 
       <div class="step-actions">
-        <button type="button" @click="emit('download')" class="ios-button primary full-width">
+        <a
+          :href="profileUrl || 'https://minhnhatdev.duckdns.org/profile.mobileconfig'"
+          @click="handleDownloadClick"
+          class="ios-button primary full-width download-dns-link"
+          style="text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 8px;"
+        >
           <i class="fa-solid fa-download" aria-hidden="true"></i>
           <span>Tải hồ sơ DNS cho iPhone</span>
-        </button>
+        </a>
+
+        <a
+          v-if="backupUrl && backupUrl !== profileUrl"
+          :href="backupUrl"
+          @click="handleDownloadClick"
+          class="backup-link"
+          style="display: block; text-align: center; margin-top: 10px; font-size: 13px; color: var(--gold-secondary);"
+        >
+          <i class="fa-solid fa-link" aria-hidden="true"></i> Tải qua link dự phòng
+        </a>
 
         <p class="dns-small-note">Xem thông tin DNS và chứng chỉ iPhone hiển thị trước khi xác nhận cài.</p>
 
