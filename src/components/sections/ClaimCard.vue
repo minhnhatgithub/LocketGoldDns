@@ -84,11 +84,11 @@ const emit = defineEmits<{
             <img src="/assets/locket-widget.svg" class="locket-logo" width="38" height="38" alt="" aria-hidden="true">
           </div>
           <div class="package-info">
-            <strong>Locket Gold · 5 ngày</strong>
+            <strong>Locket Gold · 3 ngày dùng thử</strong>
             <span>Gold &amp; video 30 giây</span>
           </div>
           <div class="package-price">
-            <small>Miễn phí</small>
+            <small>Dùng thử</small>
             <span>0đ</span>
           </div>
         </div>
@@ -97,7 +97,7 @@ const emit = defineEmits<{
         <div class="gold-benefits">
           <div class="benefit-item">
             <i class="fa-solid fa-circle-check benefit-check" aria-hidden="true"></i>
-            <span>Kích hoạt tự động, trải nghiệm trọn vẹn 5 ngày Gold</span>
+            <span>Kích hoạt tự động, dùng thử 3 ngày Gold miễn phí</span>
           </div>
           <div class="benefit-item">
             <i class="fa-solid fa-circle-check benefit-check" aria-hidden="true"></i>
@@ -113,7 +113,7 @@ const emit = defineEmits<{
       <div class="form-actions">
         <!-- Submit button -->
         <button type="submit" id="btn-claim-submit" class="ios-button primary full-width" :disabled="isSubmitting">
-          <span>Nhận 5 ngày Gold</span>
+          <span>Nhận 3 ngày dùng thử</span>
           <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
         </button>
 

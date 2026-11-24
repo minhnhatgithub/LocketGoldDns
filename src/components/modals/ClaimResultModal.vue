@@ -37,7 +37,7 @@ const emit = defineEmits<{
         <i class="fa-solid fa-check" aria-hidden="true"></i>
       </div>
 
-      <h2 id="modal-congrat-title">Đã nhận 5 ngày Gold</h2>
+      <h2 id="modal-congrat-title">Đã nhận 3 ngày Gold</h2>
       <p class="modal-subtitle">Thêm thời gian cho những khoảnh khắc của bạn.</p>
 
       <dl class="result-summary">

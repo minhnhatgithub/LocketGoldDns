@@ -39,7 +39,7 @@ function scrollToTop() {
           <li>
             <a href="#claim-box" @click.prevent="emit('navigate', 'claim-box')">
               <i class="fa-solid fa-wand-magic-sparkles" aria-hidden="true"></i>
-              <span>1. Nhận 5 ngày Gold</span>
+              <span>1. Nhận 3 ngày dùng thử</span>
             </a>
           </li>
           <li>

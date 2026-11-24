@@ -14,7 +14,7 @@ export function useLocketHub() {
   const claimModalOpen = ref<boolean>(false);
   const claimedData = ref({
     username: '',
-    days: 5,
+    days: 3,
     status: 'ACTIVE',
     uid: '',
     refCode: '',
@@ -64,7 +64,7 @@ export function useLocketHub() {
       const clean = raw.replace('@', '').replace('https://locket.cam/', '');
       claimedData.value = {
         username: clean,
-        days: 5,
+        days: 3,
         status: 'Chờ kích hoạt DNS',
         uid: Math.floor(10000000 + Math.random() * 90000000).toString(),
         refCode: `GOLD-${clean.toUpperCase().slice(0, 4) || 'VIP'}88`,
@@ -86,7 +86,7 @@ export function useLocketHub() {
       lookupResult.value = {
         username: clean,
         status: 'ACTIVE',
-        daysLeft: 5,
+        daysLeft: 3,
         dnsConnected: true,
         expiresAt: '28/11/2026',
         refCode: `GOLD-${clean.toUpperCase().slice(0, 4) || 'VIP'}88`,

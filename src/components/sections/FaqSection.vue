@@ -34,7 +34,7 @@
         <i class="fa-regular fa-bell" aria-hidden="true"></i>
         Thông báo từ Locket Gold <span aria-hidden="true">+</span>
       </summary>
-      <p>✨ Chào mừng bạn! Nhập username để nhận 14 ngày Gold miễn phí &amp; chia sẻ mã mời nhận thêm 7 ngày không giới hạn! 🎁</p>
+      <p>✨ Chào mừng bạn! Nhập username để nhận 3 ngày dùng thử Gold miễn phí &amp; chia sẻ mã mời nhận thêm ngày không giới hạn! 🎁</p>
     </details>
   </div>
 </template>

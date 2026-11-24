@@ -59,8 +59,8 @@ const emit = defineEmits<{
         </h1>
         <p class="hero-description">
           {{ platform === 'android' 
-            ? 'Chỉ cần tải file APK cài đặt trực tiếp và nhập username Locket là có ngay Gold 5 ngày.' 
-            : 'Nhận 5 ngày miễn phí, cài cấu hình DNS một lần rồi mở Locket để kích hoạt.' }}
+            ? 'Chỉ cần tải file APK cài đặt trực tiếp và nhập username Locket là có ngay 3 ngày dùng thử Gold.' 
+            : 'Nhận 3 ngày dùng thử miễn phí, cài cấu hình DNS một lần rồi mở Locket để kích hoạt.' }}
         </p>
         <a
           :href="platform === 'android' ? '#apk-download' : '#dns-guide'"
@@ -73,7 +73,7 @@ const emit = defineEmits<{
       </div>
 
       <!-- 3D Gold Pass Card -->
-      <div class="gold-pass" :aria-label="platform === 'android' ? 'Gói Locket Gold Android miễn phí 5 ngày' : 'Gói Locket Gold miễn phí 5 ngày'">
+      <div class="gold-pass" :aria-label="platform === 'android' ? 'Gói Locket Gold Android dùng thử 3 ngày' : 'Gói Locket Gold dùng thử 3 ngày'">
         <div class="pass-top">
           <span>
             <img src="/assets/locket-widget.svg" class="locket-inline-logo" width="16" height="16" alt="" aria-hidden="true">
@@ -86,7 +86,7 @@ const emit = defineEmits<{
         </div>
         <div class="pass-bottom">
           <div>
-            <strong>5 ngày</strong>
+            <strong>3 ngày</strong>
             <span>{{ platform === 'android' ? 'Chỉ cần cài APK & nhập user.' : 'Bắt đầu từ những kết nối nhỏ.' }}</span>
           </div>
           <span class="pass-spark" aria-hidden="true">✦</span>
