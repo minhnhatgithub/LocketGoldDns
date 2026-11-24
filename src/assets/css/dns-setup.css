@@ -1,0 +1,213 @@
+/* Onboarding: claim, install the profile, then verify the connection. */
+.dns-page .dns-hero { padding: 24px 0 22px; }
+.dns-page .dns-hero h1 { font-size: 45px; line-height: 1.1; margin: 12px 0; letter-spacing: -1.7px; }
+.dns-page .hero-description { max-width: 390px; min-height: 0; margin-top: 10px; font-size: 13px; font-weight: 600; line-height: 1.8; }
+.dns-page .gold-pass { flex-basis: 250px; height: 160px; }
+.dns-page .hero-dns-shortcut { margin-top: 14px; font-size: 12px; font-weight: 800; white-space: normal; }
+.setup-flow { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; list-style: none; padding: 0; margin: 0 0 22px; }
+.setup-flow li a { display: flex; align-items: center; gap: 10px; min-height: 68px; padding: 13px 15px; background: #fffdf7; border: 1px solid #f0dfb6; border-radius: 16px; }
+.flow-number { display: grid; place-items: center; width: 29px; height: 29px; border-radius: 10px; color: #a76b00; background: #ffedb3; font-size: 12px; font-weight: 900; flex-shrink: 0; }
+.setup-flow strong { display: block; font-size: 12px; color: #69491f; font-weight: 900; }
+.setup-flow small { display: block; margin-top: 3px; font-size: 10px; color: #927953; }
+.setup-flow[data-claim-ready="true"] li:first-child .flow-number { background: #e1efd5; color: #628146; }
+.setup-flow[data-dns-verified="true"] li:last-child .flow-number { background: #e1efd5; color: #628146; }
+@media (min-width: 761px) {
+  .activation-grid {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    align-items: stretch !important;
+    gap: 20px !important;
+  }
+}
+@media (max-width: 760px) {
+  .activation-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+}
+.dns-page .claim-card .card-heading h2 { font-size: 17px; }
+.dns-page .claim-card .card-heading p { font-size: 12px; line-height: 1.6; }
+.dns-page .claim-card .field label { font-size: 13px; }
+.dns-page .claim-card .input-wrap input { font-size: 16px; }
+.dns-page .claim-card .ios-button { min-height: 49px; font-size: 14px; }
+.dns-page .claim-card .ios-form { gap: 19px; }
+.dns-page .claim-card .form-footnote { font-size: 11px; }
+.dns-setup-card { padding: 25px; background: linear-gradient(145deg, #fffdf6, #fff7e6); min-width: 0; }
+.dns-setup-card .card-heading { margin-bottom: 17px; }
+.dns-setup-card .card-heading h2 { font-size: 17px; }
+.dns-setup-card .card-heading p { font-size: 12px; line-height: 1.6; }
+.dns-device-hint { display: flex; align-items: flex-start; gap: 9px; background: #fff2d2; border: 1px solid #efdbab; color: #8b6b37; padding: 11px 12px; border-radius: 12px; font-size: 12px; line-height: 1.65; margin-bottom: 18px; }
+.dns-device-hint > i { margin-top: 3px; font-size: 15px; }
+.dns-device-hint span { min-width: 0; }
+.dns-step-tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5px; background: #f6ecd7; border: 1px solid #ecdfc4; border-radius: 13px; padding: 4px; }
+.dns-step-tabs button { display: flex; align-items: center; justify-content: center; gap: 5px; color: #9b845f; background: transparent; border: 0; border-radius: 9px; min-height: 38px; padding: 7px 3px; font-size: 11px; font-weight: 800; }
+.dns-step-tabs button > span { width: 18px; height: 18px; display: grid; place-items: center; border-radius: 50%; background: #ecdfc5; color: #a38a5f; font-size: 9px; flex-shrink: 0; }
+.dns-step-tabs button[aria-selected="true"] { background: #fffdf6; color: #9f6c0a; box-shadow: 0 2px 5px #9e752218; }
+.dns-step-tabs button[aria-selected="true"] > span { background: #ffe196; color: #a66e09; }
+.dns-guide-step-status { font-size: 10px; color: #aa8e5d; font-weight: 700; padding: 13px 0 10px; }
+.dns-step-panel[hidden] { display: none !important; }
+.dns-step-panel { outline-offset: 5px; }
+.dns-step-panel h3 { font-size: 18px; font-weight: 900; line-height: 1.4; color: #67481f; margin: 0 0 9px; }
+.dns-step-panel > p { font-size: 14px; line-height: 1.75; color: #8b724b; font-weight: 500; }
+.dns-step-panel p strong { color: #6f522a; font-weight: 850; }
+.dns-settings-preview { margin: 17px 0; border: 1px solid #e7dfce; border-radius: 15px; overflow: hidden; background: #f8f6f0; }
+.preview-app { display: flex; align-items: center; gap: 7px; padding: 10px 13px; background: #fffdf9; border-bottom: 1px solid #ece4d5; font-size: 11px; color: #807359; font-weight: 800; }
+.preview-app > i { color: #979889; font-size: 14px; }
+.preview-app > span { margin-left: auto; font-size: 8px; color: #b4a78e; font-weight: 500; }
+.profile-prompt { max-width: 265px; margin: 16px auto; background: #fffefa; border: 1px solid #e5dfd4; border-radius: 12px; text-align: center; box-shadow: 0 3px 8px #60533108; }
+.profile-prompt > strong { display: block; margin: 14px 8px 5px; font-size: 12px; color: #5d5648; font-weight: 850; }
+.profile-prompt > p { padding: 0 14px 13px; font-size: 10px; color: #a09581; line-height: 1.6; }
+.profile-prompt > div { border-top: 1px solid #eae4d8; display: grid; grid-template-columns: 1fr 1fr; }
+.profile-prompt > div > span { padding: 10px; font-size: 11px; color: #a49a86; }
+.profile-prompt > div > span + span { border-left: 1px solid #eae4d8; }
+.profile-prompt .prompt-allow { background: #edf4ff; color: #3278c7; font-weight: 850; border-radius: 0 0 12px 0; }
+.prompt-allow i { margin-left: 4px; }
+.dns-step-panel > .ios-button { min-height: 48px; font-size: 13px; }
+.dns-continue { display: flex; align-items: center; justify-content: center; gap: 7px; width: 100%; padding: 15px 3px 7px; min-height: 44px; font-size: 12px; color: #a47320; font-weight: 800; background: transparent; border: 0; }
+.dns-continue:hover { text-decoration: underline; }
+.dns-step-panel > .dns-small-note { font-size: 10px; text-align: center; color: #a18c69; margin-top: 8px; }
+.settings-row { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin: 12px; padding: 12px; background: #fffdf8; border: 1px solid #ede6d8; border-radius: 10px; font-size: 12px; color: #81745e; }
+.settings-row > span { min-width: 0; }
+.settings-row > span > i { margin-right: 6px; color: #a1a892; }
+.settings-row > i { font-size: 9px; color: #b9b09d; }
+.settings-row.highlighted { background: #fffae9; border-color: #e9d7a5; color: #8a6c29; font-weight: 800; }
+.install-row { margin-top: -4px; font-size: 10px; }
+.install-row strong { color: #3f80c3; font-size: 12px; }
+.dns-step-panel .dns-inline-tip { display: flex; align-items: flex-start; gap: 6px; font-size: 11px; padding: 11px; background: #f7f0df; border-radius: 10px; }
+.dns-inline-tip > i { color: #ba9b5d; margin-top: 3px; }
+.dns-mini-help, .dns-other-device { margin-top: 13px; border: 1px solid #efdfc1; border-radius: 12px; background: #fffdf7; }
+.dns-mini-help summary, .dns-other-device summary { padding: 11px 13px; font-size: 11px; color: #9c7940; font-weight: 800; cursor: pointer; line-height: 1.6; }
+.dns-mini-help p, .dns-other-device p { padding: 0 13px 12px; font-size: 11px; line-height: 1.8; color: #947d57; }
+.dns-mini-help p strong, .dns-other-device p strong { font-weight: 800; color: #7b6039; }
+.dns-mini-help a, .dns-other-device p a { color: #ad781e; font-size: 11px; text-decoration: underline; font-weight: 700; }
+.dns-mini-help > a { display: inline-block; margin: 0 13px 13px; }
+.dns-step-actions { display: flex; justify-content: space-between; gap: 9px; margin-top: 17px; }
+.dns-step-actions .ios-button { min-height: 45px; font-size: 12px; }
+.dns-step-actions .primary { flex: 1; }
+.dns-open-app { display: flex; align-items: center; gap: 12px; margin: 17px 0; padding: 15px 13px; background: #fff0ba; border: 1px solid #f0d98d; border-radius: 14px; }
+.dns-open-app img { width: 44px; height: 44px; flex-shrink: 0; }
+.dns-open-app > div { min-width: 0; }
+.dns-open-app strong { display: block; font-size: 12px; font-weight: 900; color: #8d631a; }
+.dns-open-app span { display: block; font-size: 10px; margin-top: 4px; color: #a58646; line-height: 1.6; }
+.dns-open-app > i { margin-left: auto; color: #caa75c; font-size: 12px; }
+.dns-cert-help { margin-bottom: 17px; }
+.dns-verification-status { margin-top: 15px; padding: 10px 12px; border-radius: 11px; background: #f6efdf; display: flex; align-items: flex-start; gap: 7px; font-size: 10px; line-height: 1.8; color: #9d8660; }
+.dns-verification-status i { margin-top: 4px; }
+.dns-verification-status[data-state="verified"] { background: #eaf4df; color: #668848; }
+.dns-verification-status[data-state="attention"] { background: #fff0d3; color: #aa7d35; }
+.dns-verification-status[data-state="unavailable"] { background: #f2edf4; color: #9c81a0; }
+.dns-copy-row { display: flex; align-items: stretch; gap: 7px; padding: 0 12px 12px; }
+.dns-copy-row input { width: 100%; min-width: 0; padding: 9px; border: 1px solid #eddfc6; border-radius: 9px; background: #fffcf5; font-size: 12px; color: #8a7551; }
+.dns-copy-row .ios-button { min-height: 38px; flex-shrink: 0; font-size: 10px; padding: 8px 11px; }
+.dns-setup-card .video-guide { border-radius: 12px; margin-top: 13px; box-shadow: none; }
+.dns-setup-card .video-guide summary { padding: 11px 12px; gap: 8px; }
+.dns-setup-card .video-guide summary strong { font-size: 11px; }
+.dns-setup-card .video-guide summary small { font-size: 10px; }
+.dns-setup-card .video-guide .heading-icon { width: 27px; height: 27px; border-radius: 8px; font-size: 11px; }
+.lookup-intro { display: flex; align-items: center; gap: 12px; margin: 29px 2px 15px; }
+.lookup-intro > p { min-width: 0; }
+.lookup-intro strong { display: block; color: #7d5825; font-size: 16px; font-weight: 900; }
+.lookup-intro span:not(.heading-icon) { display: block; color: #9d835b; font-size: 11px; margin-top: 4px; line-height: 1.7; }
+.dns-page .lookup-card { padding: 22px 25px; }
+.dns-page .lookup-card .card-heading { margin-bottom: 16px; }
+.dns-page .lookup-card .input-wrap input { font-size: 16px; }
+.dns-page .lookup-card .ios-button { font-size: 13px; }
+.extras-heading { margin: 34px 2px 18px; }
+.extras-heading h2 { font-size: 19px; font-weight: 900; letter-spacing: -.4px; color: #806134; }
+.extras-heading p { font-size: 12px; margin-top: 5px; color: #a38b64; line-height: 1.7; }
+.rewards-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 22px; align-items: start; }
+.rewards-grid .referral-banner { margin: 0; padding: 24px 20px; flex-wrap: wrap; align-items: flex-start; }
+.rewards-grid .referral-banner > div:nth-child(2) { flex: 1 1 calc(100% - 59px); }
+.rewards-grid .referral-banner h2 { font-size: 16px; line-height: 1.5; }
+.rewards-grid .referral-banner p { font-size: 12px; line-height: 1.8; }
+.rewards-grid .referral-banner .text-link { flex-basis: 100%; margin-left: 55px; font-size: 12px; }
+.setup-announcement { margin-top: 26px; }
+.modal-dns-next { margin: 15px 0 18px; padding: 17px; background: #fff1bd; border: 1px solid #eed283; border-radius: 16px; }
+.dns-next-label { color: #ad842e; font-size: 9px; font-weight: 900; letter-spacing: .6px; display: flex; align-items: center; gap: 5px; }
+.modal-dns-next h3 { color: #856023; font-size: 17px; font-weight: 900; line-height: 1.4; margin-top: 7px; }
+.modal-dns-next p { font-size: 12px; color: #9d7e45; line-height: 1.8; margin: 8px 0 14px; }
+.modal-dns-next > .ios-button { min-height: 45px; font-size: 12px; }
+.dns-next-guide { margin-top: 13px; font-size: 11px; display: flex; justify-content: center; text-align: center; white-space: normal; }
+.modal-referral-details { margin: 14px 0; border: 1px solid #eee1c4; border-radius: 12px; background: #fffdf7; }
+.modal-referral-details > summary { padding: 12px; font-size: 11px; color: #ab8c58; font-weight: 800; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.modal-referral-details summary > i { font-size: 10px; }
+.modal-referral-details[open] summary > i { transform: rotate(180deg); }
+.modal-referral-details .modal-referral { margin: 0; border: 0; padding-top: 0; }
+.modal-sheet > a[href="#dns-guide"] { background: #fff9e9; color: #ad8844; box-shadow: none; border: 1px solid #eddbb0; }
+
+@media (max-width: 1120px) and (min-width: 761px) {
+    .activation-grid { grid-template-columns: 1fr; }
+    .dns-page .claim-card, .dns-setup-card { padding: 25px; }
+    .dns-page .dns-hero h1 { font-size: 39px; }
+    .dns-page .gold-pass { flex-basis: 205px; height: 145px; }
+    .dns-page .hero-description { max-width: 280px; font-size: 12px; }
+    .rewards-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 760px) {
+    .dns-page .dns-hero { padding: 19px 0 20px; display: block; }
+    .dns-page .dns-hero h1 { font-size: 37px; margin: 12px 0 9px; white-space: normal; letter-spacing: -1.3px; }
+    .dns-page .gold-pass { display: none; }
+    .dns-page .hero-description { max-width: 100%; font-size: 13px; min-height: 0; margin-top: 11px; }
+    .dns-page .hero-dns-shortcut { font-size: 12px; margin-top: 13px; line-height: 1.8; }
+    .setup-flow { gap: 6px; margin-bottom: 19px; }
+    .setup-flow li a { flex-direction: column; gap: 7px; padding: 11px 4px; min-height: 102px; align-items: center; text-align: center; border-radius: 14px; }
+    .flow-number { width: 26px; height: 26px; font-size: 11px; border-radius: 9px; }
+    .setup-flow strong { font-size: 11px; }
+    .setup-flow small { font-size: 9px; line-height: 1.6; }
+    .activation-grid { grid-template-columns: 1fr; gap: 23px; }
+    .dns-page .claim-card, .dns-setup-card { padding: 21px; border-radius: 21px; }
+    .dns-page .claim-card .card-heading h2 { font-size: 17px; line-height: 1.5; }
+    .dns-page .claim-card .card-heading p { font-size: 11px; }
+    .dns-page .claim-card .section-number { display: none; }
+    .dns-page .claim-card .ios-form { gap: 18px; }
+    .dns-page .claim-card .field-help { font-size: 10px; line-height: 1.7; }
+    .dns-page .claim-card .form-footnote { font-size: 10px; }
+    .dns-setup-card .card-heading h2 { font-size: 18px; }
+    .dns-setup-card .card-heading p { font-size: 11px; }
+    .dns-device-hint { font-size: 12px; }
+    .dns-step-tabs { gap: 3px; padding: 4px; }
+    .dns-step-tabs button { min-height: 42px; gap: 4px; font-size: 11px; }
+    .dns-step-tabs button > span { width: 17px; height: 17px; font-size: 9px; }
+    .dns-step-panel h3 { font-size: 18px; }
+    .dns-step-panel > p { font-size: 14px; }
+    .dns-step-panel > .ios-button { font-size: 12px; min-height: 49px; }
+    .dns-settings-preview { margin: 16px 0; }
+    .profile-prompt { margin: 13px; }
+    .profile-prompt > strong { font-size: 12px; }
+    .dns-mini-help summary, .dns-other-device summary { font-size: 11px; padding: 11px; }
+    .dns-mini-help p, .dns-other-device p { font-size: 11px; padding-left: 11px; padding-right: 11px; }
+    .dns-step-actions .ios-button { font-size: 11px; min-height: 45px; padding: 10px 13px; }
+    .dns-continue { font-size: 11px; }
+    .dns-verification-status { font-size: 10px; }
+    .dns-copy-row { flex-wrap: wrap; }
+    .dns-copy-row input { font-size: 16px; flex-basis: 100%; }
+    .dns-copy-row .ios-button { width: 100%; font-size: 11px; }
+    .lookup-intro { margin-top: 29px; align-items: flex-start; }
+    .lookup-intro strong { font-size: 16px; line-height: 1.5; }
+    .lookup-intro span:not(.heading-icon) { font-size: 11px; }
+    .dns-page .lookup-card { padding: 21px; }
+    .dns-page .lookup-card .card-heading h2 { font-size: 17px; line-height: 1.5; }
+    .rewards-grid { grid-template-columns: 1fr; gap: 19px; }
+    .extras-heading h2 { font-size: 19px; line-height: 1.45; }
+    .extras-heading p { font-size: 11px; }
+    .rewards-grid .referral-banner { padding: 20px 16px; }
+    .rewards-grid .referral-banner h2 { font-size: 14px; }
+    .rewards-grid .referral-banner p { font-size: 11px; }
+    .rewards-grid .referral-banner .text-link { margin-left: 51px; }
+    .modal-sheet { padding: 25px 20px; }
+    .modal-dns-next { padding: 15px; }
+    .modal-dns-next h3 { font-size: 17px; }
+    .modal-dns-next p { font-size: 12px; }
+}
+@media (max-width: 360px) {
+    .dns-page .dns-hero h1 { font-size: 34px; }
+    .dns-page .claim-card, .dns-setup-card, .dns-page .lookup-card { padding: 17px; }
+    .dns-step-tabs button { font-size: 10px; gap: 3px; }
+    .dns-step-tabs button > span { width: 15px; height: 15px; font-size: 8px; }
+    .setup-flow small { font-size: 8px; }
+    .dns-open-app { gap: 9px; padding: 12px 10px; }
+    .dns-open-app strong { font-size: 11px; }
+    .dns-open-app img { width: 36px; height: 36px; }
+    .modal-sheet { padding-left: 16px; padding-right: 16px; }
+}

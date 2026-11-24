@@ -1,0 +1,1037 @@
+/* ============================================================
+   Locket Gold Hub - Luxury Obsidian & Gold Dark Mode
+   ============================================================ */
+
+html.dark {
+  color-scheme: dark;
+  background-color: #12110f !important;
+  min-height: 100vh;
+}
+
+html.dark,
+html.dark body,
+html.dark body.ios-app {
+  background: radial-gradient(ellipse at 90% 5%, rgba(245, 158, 11, 0.12), transparent 45%),
+              radial-gradient(ellipse at 10% 55%, rgba(217, 119, 6, 0.08), transparent 40%),
+              #12110f !important;
+  background-color: #12110f !important;
+  color: #e6ded3 !important;
+  min-height: 100vh;
+}
+
+/* Floating Actions in Dark Mode */
+html.dark .floating-action-btn {
+  background: #1c1915 !important;
+  border-color: #383025 !important;
+  color: #f7d280 !important;
+  box-shadow: 0 4px 0 #13110d, 0 6px 16px rgba(0, 0, 0, 0.4) !important;
+}
+
+html.dark .floating-action-btn:hover {
+  background: #252019 !important;
+}
+
+html.dark .floating-action-btn.theme-toggle {
+  background: #2a2217 !important;
+  color: #f59e0b !important;
+}
+
+/* Sidebar Dark Mode */
+html.dark .sidebar {
+  background: #181613 !important;
+  border-right-color: #2b251d !important;
+}
+
+html.dark .brand-title {
+  color: #fdfaf3 !important;
+}
+
+html.dark .brand-caption {
+  color: #a4917a !important;
+}
+
+html.dark .nav-caption {
+  color: #8c7a65 !important;
+}
+
+html.dark .nav-item {
+  color: #b5a48e !important;
+}
+
+html.dark .nav-item i {
+  color: #8a7761 !important;
+}
+
+html.dark .nav-item:hover {
+  background: #252019 !important;
+  color: #fbbf24 !important;
+}
+
+html.dark .nav-item:hover i {
+  color: #f59e0b !important;
+}
+
+html.dark .nav-item.active {
+  background: linear-gradient(110deg, #382607, #4d3608) !important;
+  color: #fbbf24 !important;
+  box-shadow: inset 0 0 0 1px #785208 !important;
+}
+
+html.dark .nav-item.active i {
+  color: #f59e0b !important;
+}
+
+html.dark .sidebar-control-btn {
+  background: #252019 !important;
+  border-color: #3d3324 !important;
+  color: #d4af37 !important;
+}
+
+html.dark .sidebar-control-btn:hover {
+  background: #332b21 !important;
+  color: #fbbf24 !important;
+}
+
+html.dark .sidebar-tip {
+  background: linear-gradient(140deg, #271f13, #1e1913) !important;
+  border-color: #3d311f !important;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3) !important;
+}
+
+html.dark .sidebar-tip h3 {
+  color: #fef08a !important;
+}
+
+html.dark .sidebar-tip p {
+  color: #b3a08b !important;
+}
+
+html.dark .sidebar-tip a {
+  color: #fbbf24 !important;
+}
+
+html.dark .support-link {
+  color: #9e8c76 !important;
+}
+
+html.dark .support-link:hover {
+  color: #fbbf24 !important;
+}
+
+html.dark .sidebar-signoff {
+  border-top-color: #2b251d !important;
+  color: #8a7a67 !important;
+}
+
+html.dark .version-badge {
+  background: #2b2316 !important;
+  color: #d4af37 !important;
+}
+
+/* Theme Switch Pill in Sidebar */
+html.dark .theme-toggle-pill {
+  background: #252019 !important;
+  border-color: #3d3324 !important;
+  color: #fbbf24 !important;
+}
+
+/* Setup Flow Navigation Header */
+html.dark .setup-flow li a {
+  background: #1c1915 !important;
+  border-color: #2f271d !important;
+}
+
+html.dark .setup-flow strong {
+  color: #fdfaf3 !important;
+}
+
+html.dark .setup-flow small {
+  color: #a3907a !important;
+}
+
+html.dark .flow-number {
+  background: #382607 !important;
+  color: #fbbf24 !important;
+}
+
+/* Global Card System in Dark Mode */
+html.dark .ios-card {
+  background: #1c1915 !important;
+  border-color: #2f271d !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35) !important;
+}
+
+html.dark .card-heading h2 {
+  color: #fdfaf3 !important;
+}
+
+html.dark .card-heading p {
+  color: #a3907a !important;
+}
+
+html.dark .section-number {
+  background: #33260d !important;
+  color: #fbbf24 !important;
+}
+
+/* Claim Card (Card 1) */
+html.dark .claim-card .field label {
+  color: #e5ded3 !important;
+}
+
+html.dark .input-wrap {
+  background: #231f19 !important;
+  border-color: #3b3225 !important;
+}
+
+html.dark .input-wrap input {
+  color: #fdfaf3 !important;
+}
+
+html.dark .input-wrap input::placeholder {
+  color: #7d6e5d !important;
+}
+
+html.dark .input-icon-prefix {
+  color: #bfa888 !important;
+}
+
+html.dark .field-help {
+  color: #8a7965 !important;
+}
+
+html.dark .optional-tag {
+  color: #8a7965 !important;
+}
+
+html.dark .package-summary {
+  background: #241f17 !important;
+  border-color: #3b3020 !important;
+}
+
+html.dark .package-info strong {
+  color: #fef08a !important;
+}
+
+html.dark .package-info span {
+  color: #a3907a !important;
+}
+
+html.dark .package-price small {
+  color: #8a7965 !important;
+}
+
+html.dark .package-price span {
+  color: #f59e0b !important;
+}
+
+html.dark .gold-benefits {
+  background: #201b15 !important;
+  border-color: #362b1b !important;
+}
+
+html.dark .benefit-item {
+  color: #d6c7b2 !important;
+}
+
+html.dark .claim-quick-hint {
+  background: #211c14 !important;
+  border-color: #3d2f1b !important;
+  color: #cbbba6 !important;
+}
+
+html.dark .claim-quick-hint strong {
+  color: #fbbf24 !important;
+}
+
+html.dark .form-footnote {
+  color: #8a7965 !important;
+}
+
+/* DNS Setup Card (Card 2) */
+html.dark .dns-device-hint {
+  background: #2b210f !important;
+  border-color: #473516 !important;
+  color: #fbbf24 !important;
+}
+
+html.dark .open-photo-guide-pill {
+  background: #332408 !important;
+  border-color: #573c0d !important;
+  color: #fef08a !important;
+}
+
+html.dark .open-photo-guide-pill:hover {
+  background: #422f0c !important;
+}
+
+html.dark .dns-step-tabs {
+  background: #231f18 !important;
+  border-color: #382e21 !important;
+}
+
+html.dark .dns-step-tabs button {
+  color: #a3907a !important;
+}
+
+html.dark .dns-step-tabs button > span {
+  background: #332b20 !important;
+  color: #d4af37 !important;
+}
+
+html.dark .dns-step-tabs button.active {
+  background: #382607 !important;
+  color: #fbbf24 !important;
+}
+
+html.dark .dns-step-tabs button.active > span {
+  background: #f59e0b !important;
+  color: #1a1714 !important;
+}
+
+html.dark .dns-guide-step-status {
+  color: #a3907a !important;
+}
+
+html.dark .step-title {
+  color: #fdfaf3 !important;
+}
+
+html.dark .step-desc {
+  color: #b5a48e !important;
+}
+
+html.dark .dns-settings-preview {
+  background: #171512 !important;
+  border-color: #2e261d !important;
+}
+
+html.dark .preview-app {
+  background: #1f1b16 !important;
+  border-bottom-color: #2e261d !important;
+  color: #b5a48e !important;
+}
+
+html.dark .profile-prompt {
+  background: #231f19 !important;
+  border-color: #3b3122 !important;
+}
+
+html.dark .profile-prompt > strong {
+  color: #fdfaf3 !important;
+}
+
+html.dark .profile-prompt > p {
+  color: #b5a48e !important;
+}
+
+html.dark .profile-prompt > div {
+  border-top-color: #3b3122 !important;
+}
+
+html.dark .profile-prompt > div > span {
+  color: #8c7b66 !important;
+}
+
+html.dark .profile-prompt > div > span + span {
+  border-left-color: #3b3122 !important;
+}
+
+html.dark .prompt-allow {
+  color: #38bdf8 !important;
+}
+
+html.dark .dns-small-note {
+  color: #8a7965 !important;
+}
+
+html.dark .dns-continue {
+  color: #fbbf24 !important;
+}
+
+html.dark .settings-guide-card .guide-item {
+  background: #221e17 !important;
+  border-color: #362c1e !important;
+}
+
+html.dark .guide-item .item-text strong {
+  color: #fdfaf3 !important;
+}
+
+html.dark .guide-item .item-text span {
+  color: #a3907a !important;
+}
+
+html.dark .guide-item.highlighted {
+  border-color: #f59e0b !important;
+  background: #2b2314 !important;
+}
+
+html.dark .dns-verification-status {
+  background: #231f18 !important;
+  color: #a3907a !important;
+}
+
+html.dark .dns-other-device {
+  background: #201c16 !important;
+  border-color: #362c1e !important;
+}
+
+html.dark .dns-other-device summary {
+  color: #fbbf24 !important;
+}
+
+html.dark .dns-other-device p {
+  color: #b5a48e !important;
+}
+
+html.dark .dns-other-device a {
+  color: #fbbf24 !important;
+}
+
+html.dark .dns-copy-row input {
+  background: #171512 !important;
+  border-color: #382e21 !important;
+  color: #fdfaf3 !important;
+}
+
+/* Lookup Section (Step 3) */
+html.dark .lookup-intro strong {
+  color: #fdfaf3 !important;
+}
+
+html.dark .lookup-intro span:not(.heading-icon) {
+  color: #a3907a !important;
+}
+
+html.dark .lookup-card {
+  background: #1c1915 !important;
+  border-color: #2f271d !important;
+}
+
+html.dark .lookup-intro .heading-icon {
+  background: linear-gradient(145deg, #4d3608, #2e2004) !important;
+  color: #fbbf24 !important;
+}
+
+html.dark .lookup-result-box {
+  background: #221e17 !important;
+  border-color: #382e20 !important;
+}
+
+html.dark .result-meta .meta-item strong {
+  color: #fdfaf3 !important;
+}
+
+html.dark .result-meta .meta-item span {
+  color: #a3907a !important;
+}
+
+/* FAQ Section */
+html.dark .section-heading h2 {
+  color: #fdfaf3 !important;
+}
+
+html.dark .section-heading p:not(.eyebrow) {
+  color: #a3907a !important;
+}
+
+html.dark .faq-list {
+  background: #1c1915 !important;
+  border-color: #2f271d !important;
+}
+
+html.dark .faq-list summary {
+  color: #fdfaf3 !important;
+}
+
+html.dark .faq-list details p {
+  color: #b5a48e !important;
+}
+
+html.dark .faq-list details + details {
+  border-top-color: #2b251d !important;
+}
+
+/* App Footer Card */
+html.dark .app-footer-card {
+  background: #1c1915 !important;
+  border-color: #2f271d !important;
+}
+
+html.dark .footer-brand-title {
+  color: #fdfaf3 !important;
+}
+
+html.dark .footer-brand-caption {
+  color: #a3907a !important;
+}
+
+html.dark .footer-quote {
+  color: #b5a48e !important;
+}
+
+html.dark .nav-col-title {
+  color: #fdfaf3 !important;
+}
+
+html.dark .nav-col-links li a {
+  color: #d6c7b2 !important;
+}
+
+html.dark .nav-col-links li a:hover {
+  color: #fbbf24 !important;
+}
+
+html.dark .safe-pill {
+  background: #0f2e1b !important;
+  border-color: #166534 !important;
+  color: #86efac !important;
+}
+
+html.dark .uptime-pill {
+  background: #332408 !important;
+  border-color: #573c0d !important;
+  color: #fef08a !important;
+}
+
+html.dark .footer-card-divider {
+  background: #2a241b !important;
+}
+
+html.dark .copyright-info {
+  color: #8a7965 !important;
+}
+
+html.dark .copyright-info strong {
+  color: #e5ded3 !important;
+}
+
+html.dark .back-to-top-pill {
+  background: #252019 !important;
+  border-color: #3d3324 !important;
+  color: #d4af37 !important;
+  box-shadow: 0 3px 0 #1c1710 !important;
+}
+
+html.dark .back-to-top-pill:hover {
+  background: #2d261e !important;
+  color: #fbbf24 !important;
+}
+
+/* Mobile Header & Mobile Tabbar in Dark Mode */
+html.dark .mobile-header {
+  background: rgba(24, 22, 19, 0.9) !important;
+  border-bottom-color: #2b251d !important;
+}
+
+html.dark .mobile-header .brand {
+  color: #fdfaf3 !important;
+}
+
+html.dark .mobile-menu-btn,
+html.dark .help-button,
+html.dark .theme-icon-btn {
+  background: #252019 !important;
+  border-color: #3d3324 !important;
+  color: #d4af37 !important;
+}
+
+html.dark .mobile-tabbar {
+  background: rgba(24, 22, 19, 0.92) !important;
+  border-top-color: #2b251d !important;
+}
+
+html.dark .mobile-tabbar a {
+  color: #8a7965 !important;
+}
+
+html.dark .mobile-tabbar .active {
+  color: #fbbf24 !important;
+}
+
+/* Floating Reopen Button on Desktop */
+html.dark .floating-sidebar-reopen-btn {
+  background: #252019 !important;
+  border-color: #3d3324 !important;
+  color: #fbbf24 !important;
+  box-shadow: 0 4px 0 #18140f, 0 6px 16px rgba(0, 0, 0, 0.4) !important;
+}
+
+html.dark .floating-sidebar-reopen-btn:hover {
+  background: #30281f !important;
+}
+
+/* Base Modal in Dark Mode */
+html.dark .modal-sheet {
+  background: #1c1915 !important;
+  border: 1px solid #382e21 !important;
+  color: #e6ded3 !important;
+}
+
+html.dark .modal-sheet h2 {
+  color: #fdfaf3 !important;
+}
+
+html.dark .modal-subtitle {
+  color: #a3907a !important;
+}
+
+html.dark .modal-close {
+  background: #252019 !important;
+  border-color: #3d3324 !important;
+  color: #d4af37 !important;
+}
+
+/* Base Modal Backdrop & Card Dark Mode */
+html.dark .base-modal-backdrop {
+  background: rgba(10, 8, 5, 0.78) !important;
+}
+
+html.dark .base-modal-card {
+  background: #1c1914 !important;
+  border-color: #382d1c !important;
+  box-shadow: 0 25px 65px rgba(0, 0, 0, 0.75), 0 0 0 1px #3a2e1c !important;
+}
+
+html.dark .base-modal-header {
+  background: #1c1914 !important;
+  border-bottom-color: #2e2518 !important;
+}
+
+html.dark .base-modal-title {
+  color: #fdfaf3 !important;
+}
+
+html.dark .base-modal-close {
+  background: #2b2214 !important;
+  color: #cbb9a3 !important;
+}
+
+/* Install Guide Modal Dark Mode */
+html.dark .install-guide-modal {
+  color: #e6ded3 !important;
+}
+
+html.dark .guide-header {
+  border-bottom-color: #2e2518 !important;
+}
+
+html.dark .guide-icon {
+  background: #2b2214 !important;
+  color: #f59e0b !important;
+  border: 1px solid #45351b !important;
+}
+
+html.dark .guide-title-row h3 {
+  color: #fdfaf3 !important;
+}
+
+html.dark .guide-title-row p {
+  color: #a89479 !important;
+}
+
+html.dark .step-indicator-badge {
+  background: #2b2214 !important;
+  border-color: #4a3818 !important;
+  color: #fcd34d !important;
+}
+
+html.dark .close-guide-btn {
+  background: #2b2214 !important;
+  border-color: #3d3120 !important;
+  color: #cbb9a3 !important;
+}
+
+html.dark .close-guide-btn:hover {
+  background: #382c1b !important;
+  color: #ffffff !important;
+}
+
+html.dark .guide-image-wrapper {
+  background: #000000 !important;
+  border-color: #3d3120 !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6) !important;
+}
+
+html.dark .step-screenshot {
+  background: #000000 !important;
+}
+
+html.dark .step-tag-pill {
+  background: transparent !important;
+}
+
+html.dark .step-tag-num {
+  background: #3a290d !important;
+  color: #fbbf24 !important;
+  border: 1px solid #573e13 !important;
+}
+
+html.dark .step-tag-phase {
+  color: #a89479 !important;
+}
+
+html.dark .step-main-title {
+  color: #fef3c7 !important;
+}
+
+html.dark .step-main-desc {
+  color: #cbb9a3 !important;
+}
+
+html.dark .step-action-card {
+  background: rgba(220, 38, 38, 0.12) !important;
+  border-color: rgba(239, 68, 68, 0.35) !important;
+}
+
+html.dark .action-card-icon {
+  color: #ef4444 !important;
+}
+
+html.dark .step-action-card strong {
+  color: #fca5a5 !important;
+}
+
+html.dark .step-action-card span {
+  color: #f87171 !important;
+}
+
+html.dark .dots-label {
+  color: #a89479 !important;
+}
+
+html.dark .dot-btn {
+  background: #251f16 !important;
+  border-color: #382d1c !important;
+  color: #cbb9a3 !important;
+}
+
+html.dark .dot-btn.active {
+  background: #f59e0b !important;
+  color: #1a150c !important;
+  border-color: #fbbf24 !important;
+  box-shadow: 0 2px 10px rgba(245, 158, 11, 0.45) !important;
+}
+
+html.dark .dot-btn.passed {
+  background: #142a18 !important;
+  border-color: #166534 !important;
+  color: #4ade80 !important;
+}
+
+html.dark .ios-button.secondary {
+  background: #251f16 !important;
+  border-color: #382d1c !important;
+  color: #e2d7c5 !important;
+}
+
+html.dark .ios-button.secondary:hover {
+  background: #2e261b !important;
+  color: #ffffff !important;
+}
+
+html.dark .ios-button.primary {
+  background: linear-gradient(135deg, #f59e0b, #d97706) !important;
+  color: #1a150c !important;
+  box-shadow: 0 4px 16px rgba(245, 158, 11, 0.35) !important;
+}
+
+/* Claim Result Modal Dark Mode */
+html.dark .claimed-code-box {
+  background: #252019 !important;
+  border-color: #3d3324 !important;
+  color: #fbbf24 !important;
+}
+
+html.dark .claimed-details {
+  background: #201c16 !important;
+  border-color: #2f271d !important;
+}
+
+html.dark .claimed-row span {
+  color: #a3907a !important;
+}
+
+html.dark .claimed-row strong {
+  color: #fdfaf3 !important;
+}
+
+/* Hero Section Dark Mode Enhancements */
+html.dark .hero h1,
+html.dark #hero-title {
+  color: #fdfaf3 !important;
+}
+
+html.dark .hero-gold {
+  color: #f59e0b !important;
+}
+
+html.dark .eyebrow {
+  color: #fbbf24 !important;
+}
+
+html.dark .hero-description {
+  color: #b5a48e !important;
+}
+
+html.dark .hero-dns-shortcut {
+  color: #f59e0b !important;
+}
+
+html.dark .hero-dns-shortcut:hover {
+  color: #fcd34d !important;
+}
+
+html.dark .page-topbar {
+  color: #a3907a !important;
+}
+
+html.dark .breadcrumb {
+  color: #d4af37 !important;
+}
+
+html.dark .breadcrumb-divider {
+  color: #5c4e3e !important;
+}
+
+html.dark .platform-pill {
+  background: #1c1915 !important;
+  border-color: #2f271d !important;
+  color: #fdfaf3 !important;
+}
+
+/* Footer Free Pill */
+html.dark .free-pill {
+  background: #2a151b !important;
+  border-color: #521c27 !important;
+  color: #fca5a5 !important;
+}
+
+/* Card Button Shadows in Dark Mode */
+html.dark .claim-btn,
+html.dark .dns-btn {
+  box-shadow: 0 4px 0 #92400e, 0 8px 20px rgba(245, 158, 11, 0.25) !important;
+}
+
+html.dark .claim-btn:active,
+html.dark .dns-btn:active {
+  box-shadow: 0 1px 0 #92400e !important;
+}
+
+/* Platform Switcher in Dark Mode */
+html.dark .platform-switcher,
+html.dark .sidebar-platform-tabs {
+  background: #151310 !important;
+  border-color: #2b251d !important;
+}
+
+html.dark .platform-tab-btn,
+html.dark .platform-tab {
+  color: #a3907a !important;
+}
+
+html.dark .platform-tab-btn:hover,
+html.dark .platform-tab:hover {
+  color: #fdfaf3 !important;
+}
+
+html.dark .platform-tab-btn.active,
+html.dark .platform-tab.active {
+  background: #252019 !important;
+  color: #fdfaf3 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4) !important;
+}
+
+html.dark .platform-tab-btn.active i.fa-apple,
+html.dark .platform-tab.active i.fa-apple {
+  color: #fdfaf3 !important;
+}
+
+html.dark .platform-tab-btn.active i.fa-android,
+html.dark .platform-tab.active i.fa-android {
+  color: #34d399 !important;
+}
+
+html.dark .nav-item i.nav-android-icon {
+  color: #34d399 !important;
+}
+
+/* Android APK Card Dark Mode */
+html.dark .apk-setup-card {
+  background: #1c1915 !important;
+  border-color: #2f271d !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35) !important;
+}
+
+html.dark .apk-setup-card .card-heading h2 {
+  color: #fdfaf3 !important;
+}
+
+html.dark .apk-setup-card .card-heading p {
+  color: #a3907a !important;
+}
+
+html.dark .apk-badge {
+  background: #064e3b !important;
+  border-color: #059669 !important;
+  color: #6ee7b7 !important;
+}
+
+html.dark .apk-device-hint {
+  background: #064e3b22 !important;
+  border-color: #05966944 !important;
+  color: #6ee7b7 !important;
+}
+
+html.dark .apk-step-tabs {
+  background: #231f18 !important;
+  border-color: #382e21 !important;
+}
+
+html.dark .apk-step-tabs button {
+  color: #a3907a !important;
+}
+
+html.dark .apk-step-tabs button > span {
+  background: #332b20 !important;
+  color: #d4af37 !important;
+}
+
+html.dark .apk-step-tabs button.active {
+  background: #2d261e !important;
+  color: #34d399 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4) !important;
+}
+
+html.dark .apk-step-tabs button.active > span {
+  background: #059669 !important;
+  color: #ffffff !important;
+}
+
+html.dark .apk-step-status {
+  color: #a3907a !important;
+}
+
+html.dark .apk-setup-card .step-title {
+  color: #fdfaf3 !important;
+}
+
+html.dark .apk-setup-card .step-desc {
+  color: #b5a48e !important;
+}
+
+html.dark .apk-file-preview {
+  background: #221e17 !important;
+  border-color: #362c1e !important;
+}
+
+html.dark .apk-preview-header {
+  border-bottom-color: #362c1e !important;
+}
+
+html.dark .apk-app-icon {
+  background: #181613 !important;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3) !important;
+}
+
+html.dark .apk-app-meta strong {
+  color: #fdfaf3 !important;
+}
+
+html.dark .apk-app-meta span {
+  color: #a3907a !important;
+}
+
+html.dark .apk-status-pill {
+  background: #064e3b !important;
+  border-color: #059669 !important;
+  color: #6ee7b7 !important;
+}
+
+html.dark .apk-feature-item {
+  color: #d6c7b2 !important;
+}
+
+html.dark .apk-download-subtext {
+  color: #a3907a !important;
+}
+
+html.dark .apk-download-subtext .sublink {
+  color: #34d399 !important;
+}
+
+html.dark .apk-advance-btn {
+  color: #d4af37 !important;
+}
+
+html.dark .apk-advance-btn:hover {
+  color: #fef08a !important;
+}
+
+html.dark .apk-back-btn {
+  color: #8c7a65 !important;
+}
+
+html.dark .apk-back-btn:hover {
+  color: #b5a48e !important;
+}
+
+html.dark .apk-guide-card {
+  background: #221e17 !important;
+  border-color: #362c1e !important;
+}
+
+html.dark .apk-guide-card.highlighted {
+  background: #064e3b22 !important;
+  border-color: #05966966 !important;
+}
+
+html.dark .apk-guide-card .guide-text strong {
+  color: #fdfaf3 !important;
+}
+
+html.dark .apk-guide-card .guide-text p {
+  color: #b5a48e !important;
+}
+
+html.dark .apk-guide-card code {
+  background: #171512 !important;
+  color: #fef08a !important;
+}
+
+html.dark .apk-complete-box {
+  background: #221e17 !important;
+  border-color: #362c1e !important;
+}
+
+html.dark .complete-icon {
+  background: #064e3b !important;
+  color: #6ee7b7 !important;
+}
+
+html.dark .apk-complete-box h4 {
+  color: #fdfaf3 !important;
+}
+
+html.dark .apk-complete-box p {
+  color: #b5a48e !important;
+}
+
+html.dark .complete-tip {
+  background: #064e3b22 !important;
+  border-color: #05966944 !important;
+  color: #6ee7b7 !important;
+}
+
+html.dark .apk-switch-ios-row {
+  border-top-color: #362c1e !important;
+}
+
+html.dark .switch-platform-pill {
+  color: #d4af37 !important;
+}
+
+html.dark .switch-platform-pill:hover {
+  color: #fef08a !important;
+}
